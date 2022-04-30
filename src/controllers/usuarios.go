@@ -11,7 +11,7 @@ import (
 )
 
 // insere um usuário no banco de dados
-func CriarUsuario(w http.ResponseWriter, r *http.Request) {
+func CreateUser(w http.ResponseWriter, r *http.Request) {
 	corpoRequest, erro := ioutil.ReadAll(r.Body)
 	// erro = errors.New("Deu erro")
 	if erro != nil {
@@ -47,21 +47,31 @@ func CriarUsuario(w http.ResponseWriter, r *http.Request) {
 }
 
 // buscar todos os usuário no banco de dados
-func BuscarUsuarios(w http.ResponseWriter, r *http.Request) {
+func SearchUsers(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("Buscando todos os usuários"))
 }
 
 // buscar um usuário especifico no banco
-func BuscarUsuario(w http.ResponseWriter, r *http.Request) {
+func SearchUser(w http.ResponseWriter, r *http.Request) {
+	// nameOrNick := strings.ToLower(r.URL.Query().Get("user"))
+
+	// db, erro := banco.Conectar()
+	// if erro != nil {
+	// 	respostas.Erro(w, http.StatusInternalServerError, erro)
+	// }
+	// defer db.Close()
+
+	// repository := repositorios.NovoRepositorioDeUsuarios(db)
+	// user, erro := repositorio.
 	w.Write([]byte("Buscando Usuário!"))
 }
 
 // altera as informações de um usuário no banco
-func AtualizarUsuario(w http.ResponseWriter, r *http.Request) {
+func UpdateUser(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("Atualizando Usuário!"))
 }
 
 // excluí as informações de um usuário no banco de dados
-func DeletarUsuario(w http.ResponseWriter, r *http.Request) {
+func DeleteUser(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("Deletando Usuário!"))
 }
